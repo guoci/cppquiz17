@@ -4,11 +4,17 @@ The expression `C(1)` constructs an instance of `C` using the constructor taking
 
 The `=` in `m[7] = C(1)` calls the copy assignment operator to copy assign the newly created `C(1)` to the previously default constructed `C` inside the map, setting `assigned` to `true`.
 
-The fact that an object is first default constructed is covered by [map.access]§23.4.4.3¶5 in the standard:
+The fact that an object is first default constructed is covered by [map.access]§26.4.4.3¶2 in the standard:
 
 > `T& operator[](key_type&& x);` 
 >
-> Effects: If there is no key equivalent to `x` in the map, inserts `value_type(std::move(x), T())` into the map.
+> Effects: Equivalent to: `return try_emplace(move(x)).first->second;`
+
+where `try_emplace` is defined by [map.modifiers]§26.4.4.4¶8:
+
+> `template <class... Args> pair<iterator, bool> try_emplace(key_type&& k, Args&&... args);`
+>
+> Effects: If the map already contains an element whose key is equivalent to `k`, there is no effect. Otherwise inserts an object of type value_type constructed with `piecewise_construct, forward_as_tuple(std::move(k)), forward_as_tuple(std::forward<Args>(args)...)`.
 
 `value_type` is just a `typedef` for `pair<const Key, T>`, which in our case is `pair<const int, C>`. So it inserts a `pair(7, C())`, which calls the default constructor for `C`.
 
