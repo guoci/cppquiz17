@@ -1,5 +1,3 @@
-`??/` is a trigraph. According to [lex.trigraph]§2.4¶1, this trigraph is translated to `\` before any other processing takes place.
+`??/` is a trigraph which doesn't exist anymore in C++17, and as it is in a comment, it is ignored (as anything else).
 
-Since that `\` is followed by a newline,  the line `x=1` is treated as a continuation of the comment.
-
-Note: Trigraphs will be removed from the standard in C++17.
+So the output is `1`.
