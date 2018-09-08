@@ -1,6 +1,6 @@
 Providing a definition for a pure virtual function is valid, as long as it is not defined directly in the function declaration. So defining `Base::f()` outside of `Base` is ok.
 
-[class.abstract]§13.4¶2 in the C++11 standard:
+[class.abstract]§13.4¶2 in the C++ standard:
 > A pure virtual function need be defined only if called with, or as if with (§15.4), the qualified-id syntax (§8.1).
 
 This implicitly says that a pure virtual function can in fact be defined. Furthermore:

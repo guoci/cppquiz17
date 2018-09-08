@@ -2,7 +2,7 @@ On the first line, `C c1;`, the object `c1` is default initialized, so the defau
 
 On the second line,  `C c2 = c1;`, the object `c2` is copy initialized, so the copy constructor is called, printing `2`. (Note that no assignment is taking place, even though there's a `=` involved.)
 
-Let's have a look at the C++11 standard:
+Let's have a look at the C++ standard:
 
 [dcl.init]§11.6¶15:
 "The initialization that occurs in the form of a brace-or-equal-initializer (...) is called copy-initialization."

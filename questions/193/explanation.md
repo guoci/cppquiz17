@@ -5,7 +5,7 @@ C++ provides alternative tokens for some punctuators. The two weird lines are ex
     std::cout << a[0];
 ```
 
-[lex.digraph]§5.5¶1-2 in the C++11 standard explains this:
+[lex.digraph]§5.5¶1-2 in the C++ standard explains this:
 
 "Alternative token representations are provided for some operators and punctuators."
 
