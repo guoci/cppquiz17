@@ -1,1 +1,1 @@
-[dcl.fct]§8.3.5¶5 in the standard: "any parameter of type “array of T” (...) is adjusted to be “pointer to T”"
+[dcl.fct]§11.3.5¶5 in the standard: "any parameter of type “array of T” (...) is adjusted to be “pointer to T”".

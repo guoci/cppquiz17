@@ -4,7 +4,7 @@ When we call `f<int>()` for the first time, `stat` is `0`, and `0` is printed. `
 When we call `f<int>()` again, `stat` is `1`, and `1` is printed. `stat` is then incremented to `2`.
 We then call `f<const int>()`, which is a distinct function with its own `stat`, which is `0`, and `0` is printed.
 
-This example from [temp.deduct]§14.8.2¶3 in the standard is is relevant:
+This example from [temp.deduct]§17.8.2¶3 in the standard is is relevant:
 
     template <class T> void f(T t);
     (...)
@@ -13,10 +13,10 @@ This example from [temp.deduct]§14.8.2¶3 in the standard is is relevant:
     // #2: function type is f(int), t is const
     f<const int>(1);
 
-So we can see that all calls to `f()` in the question are to a function of the same type `f(int)`. However, [temp.deduct]§14.8.2¶4 says:
+So we can see that all calls to `f()` in the question are to a function of the same type `f(int)`. However, [temp.deduct]§17.8.2¶4 says:
 "`f<int>(1)` and `f<const int>(1)` call distinct functions even though both of the functions called have the same function type."
 
-So now we know that the functions are distinct. And [temp.fct.spec]§14.8¶2 says:
+So now we know that the functions are distinct. And [temp.fct.spec]§17.8¶2 says:
 "Each function template specialization instantiated from a template has its own copy of any static variable."
 
 So now we know that the `stat` variables will also be distinct.

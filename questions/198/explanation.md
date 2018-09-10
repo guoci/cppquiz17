@@ -2,13 +2,13 @@
 
 Why do `A::x` and `B::x` refer to the same variable?
 
-[dcl.link]§7.5¶6 in the C++11 standard:
+[dcl.link]§10.5¶6 in the C++ standard:
 "Two declarations for a variable with C language linkage with the same name (ignoring the namespace names that qualify it) that appear in different namespace scopes refer to the same variable."
 
 Now, why is `int x;` a definition, and not an `extern` declaration? The standard declares that "a declaration directly contained in a linkage-specification is treated as if it contains the extern specifier". `x` is not directly contained in the linkage specification, and thus doesn't have the implicit `extern`. Therefore it's a definition and repeated definition of `x` causes a compilation error.
 
-[dcl.link]§7.5¶7 in the standard has the explanation and a relevant example:
-"A declaration directly contained in a linkage-specification is treated as if it contains the extern specifier (7.1.1) for the purpose of determining the linkage of the declared name and whether it is a definition. (...) [ Example:
+[dcl.link]§10.5¶7 in the standard has the explanation and a relevant example:
+"A declaration directly contained in a linkage-specification is treated as if it contains the extern specifier (10.1.1) for the purpose of determining the linkage of the declared name and whether it is a definition. (...) [ Example:
 
     (...)
     extern "C" int i;                   // declaration

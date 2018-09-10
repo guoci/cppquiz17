@@ -4,13 +4,13 @@ However, due to [argument-dependent name lookup](https://en.wikipedia.org/wiki/A
 
 With argument-dependent name lookup, the namespaces of the *arguments to* a function is added to the set of namespaces to be searched for that function. Since we're passing an `x::C` to `f`, the namespace `x` is also searched, and the function `x::f` is found.
 
-[basic.lookup.argdep]§3.4.2¶1 in the C++11 standard:
-"When the postfix-expression in a function call (5.2.2) is an unqualified-id, other namespaces not considered during the usual unqualified lookup (3.4.1) may be searched(...). These modifications to the search depend on the types of the arguments (...)."
+[basic.lookup.argdep]§6.4.2¶1 in the C++ standard:
+"When the postfix-expression in a function call (§8.2.2) is an unqualified-id, other namespaces not considered during the usual unqualified lookup (§6.4.1) may be searched(...). These modifications to the search depend on the types of the arguments (...)."
 
 `f` is an unqualified-id, so "other namespaces" may be searched.
 
-[basic.lookup.argdep]§3.4.2¶2 has more:
-"For each argument type T in the function call, there is a set of zero or more associated namespaces and a set of zero or more associated classes to be considered. The sets of namespaces and classes is determined entirely by the types of the function arguments (...). The sets of namespaces and classes are determined in the following way:
+[basic.lookup.argdep]§6.4.2¶2 has more:
+"For each argument type T in the function call, there is a set of zero or more associated namespaces and a set of zero or more associated classes to be considered. The sets of namespaces and classes are determined entirely by the types of the function arguments (...). The sets of namespaces and classes are determined in the following way:
 (...)
 - If T is a class type (including unions), its associated classes are: the class itself; the class of which it is a member, if any; and its direct and indirect base classes. Its associated namespaces are the namespaces of which its associated classes are members."
 

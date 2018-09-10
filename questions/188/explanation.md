@@ -1,15 +1,17 @@
 Modifying string literals is undefined behavior. In practice, the implementation can for instance store the string literal in read-only memory, such as the code segment. Two string literals might even be stored in overlapping memory. So allowing them to be modified is clearly not a good idea.
 
-Let's look at [lex.literal]§2.14 in the C++ standard:
+Let's look at [lex.literal]§5.13 in the C++ standard:
 
-According to  [lex.string]§2.14.5¶1 `"Hello"` is a string literal :
+According to  [lex.string]§5.13.5¶1 `"Hello"` is a string literal:
 
-"A string literal is a sequence of characters (as defined in 2.14.3) surrounded by double quotes, optionally
+"A string literal is a sequence of characters (as defined in §5.13.3) surrounded by double quotes, optionally
 prefixed by R, u8, u8R, u, uR, U, UR, L, or LR, as in "...", R"(...)", u8"...", u8R"**(...)**", u"...",
 uR"*˜(...)*˜", U"...", UR"zzz(...)zzz", L"...", or LR"(...)", respectively."
 
-The particularity of storing of string literals is implementation-defined. Thus the result of modification of a string literal is undefined :
+The particularity of storing of string literals is unspecified. Thus the result of modification of a string literal is undefined [1]:
 
-[lex.string]§2.14.5¶12
+[lex.string]§5.13.5¶16:
 
-"Whether all string literals are distinct (that is, are stored in nonoverlapping objects) is implementation-defined. The effect of attempting to modify a string literal is undefined."
+"Whether all string literals are distinct (that is, are stored in nonoverlapping objects) and (...)  is unspecified. [Note: The effect of attempting to modify a string literal is undefined. - end note]"
+
+[1]: Also consider that the type of the string literal is array of const char, and thus not modifiable.
